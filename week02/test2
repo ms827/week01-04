@@ -1,0 +1,15 @@
+import heapq
+
+k, n = map(int, input().split())
+prime = list(map(int, input().split()))
+h = prime[:]
+
+heapq.heapify(h)
+
+for i in range(n):
+    num = heapq.heappop(h)
+    for j in prime:
+        heapq.heappush(h, num * j)
+        if num % j == 0:
+            break
+print(num)
